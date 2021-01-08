@@ -1,0 +1,43 @@
+@charset "ISO-8859-1";
+body{
+ margin: 0;
+ font-family: sans-serif;
+ background-image: url(beach2.jpg);
+ background-repeat: no-repeat;
+ background-size: cover ;
+
+}
+.body ul {
+ list-style-type: none;
+ margin: 0;
+ padding: 0;
+ overflow: hidden;
+ border-bottom: 1px solid #bbb;
+}
+.body li a {
+ display: block;
+ color: white;
+ font-family: 'Times new roman';
+ text-decoration: none;
+ text-align: center;
+ font-size: 22px;
+}
+.body li {
+ float: right;
+ display: inline;
+ padding: 15px 5px 5px 50px;
+}
+form {
+ float:right;
+ height: 75%;
+ padding: 75px 50px 75px 18px;
+ border-radius: 15px 8px 20px 20px;
+ background-color: white;
+ opacity: 0.8;
+ position: relative;
+}
+label {
+ color: black;
+ font-size: 25px;
+ font-family: sans-serif;
+}

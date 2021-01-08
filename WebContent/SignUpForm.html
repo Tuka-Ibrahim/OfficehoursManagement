@@ -1,0 +1,77 @@
+<!DOCTYPE html>  
+<html>  
+<head> 
+<link rel="stylesheet" type="text/css" href="style.css">
+<script>
+/* Function to Generat Captcha */  
+function GenerateCaptcha() {  
+    var x = Math.ceil(Math.random() * 15) + '';  
+    var y = Math.ceil(Math.random() * 15) + '';  
+    var z = Math.ceil(Math.random() * 15) + '';  
+    var str = new Array(4).join().replace(/(.|$)/g, function () { return ((Math.random() * 36) | 0).toString(36)[Math.random() < .5 ? "toString" : "toUpperCase"](); });  
+    var captchaCode = str + x + ' ' + y + ' ' + z;  
+    document.getElementById("txtCaptcha").value = captchaCode  
+}
+/* Validating Captcha Function */  
+function ValidCaptcha() {  
+    var string1 = removeSpaces(document.getElementById('txtCaptcha').value);  
+    var strint2 = removeSpaces(document.getElementById('txtCompare').value);  
+
+    if (string1 == string2) 
+    {	
+    return true;
+    }
+    else
+    {
+    alert("Input is not valid");
+    return false;  
+}  
+}
+/* Remove spaces from Captcha Code */  
+function removeSpaces(string) {  
+    return string.split(' ').join('');  
+}  
+
+	
+
+</script>
+</head>  
+<body  onload="GenerateCaptcha()">
+		<div class="body">
+		<ul>
+		 <li><a href="#Contact">Contact</a></li>
+		 <li><a href="#Support">Support</a></li>
+		 <li><a href="#Why US">Why us</a></li>
+		 <li><a href="#Services">Services</a></li>
+		 <li><a href="#about Us" >About us</a></li>
+		 <li><a href="#Home">Home</a></li>
+		 <li style="float:left; padding: 10px 10px 10px 50px;"><a style="font-size:30px;" href="#booking">Booking.com</a></li>
+		</ul>
+		</div>
+			<script src="script.js"></script>
+		 	<form name="signUpform" onsubmit="return validateRegisterForm()" action="validate" method="post">
+			<label>First name:</label> 
+            <input type="text" name="fname"> 
+            <br/></br> 
+            <label>Last name:</label> 
+            <input type="text" name="lname""> 
+            <br/></br> 
+            <label>Email address:</label> 
+            <input type="email" name="email" > 
+            <br/></br> 
+           	<input type="submit" name="signup" value="Sign up now">
+            </form>	        
+            <form>
+            <div style="border: 2px solid gray; width: 700px;">   
+	        <input type="text" id="txtCompare"/>  
+	        <input type="text" id="txtCaptcha" style="text-align: center; border: none; font-weight: bold; font-size: 20px; font-family: Modern" />  
+	        <input type="button" id="btnrefresh" value="Refresh" onclick="GenerateCaptcha();" />  
+	        <input type="submit" id="btnValid" type="button" value="I'm not a robot" onclick="alert(ValidCaptcha());" />  
+	        <br/>  
+	        <br/> 
+	        </div>
+            <br/></br>
+	        </form>
+	        
+</body>  
+</html>  

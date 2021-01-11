@@ -1,7 +1,10 @@
+<%@ page import="java.time.*"%>
 <!DOCTYPE html>  
 <html>  
 <head> 
+<script src="script.js"></script>
 <link rel="stylesheet" type="text/css" href="style.css">
+<script src="jquery-3.5.1.min.js"></script>
 <script>
 /* Function to Generat Captcha */  
 function GenerateCaptcha() {  
@@ -29,8 +32,18 @@ function ValidCaptcha() {
 /* Remove spaces from Captcha Code */  
 function removeSpaces(string) {  
     return string.split(' ').join('');  
-}  
-
+} 
+/* Function to send data to servlets to check if the user already exists or not */
+$(document).ready(function(){
+	 $('#btnValid').click(function(){
+        var mail = $('#email').val();
+        $.post("validate",{
+        	mail: email
+        	}, 
+        function(result,status){       
+        });
+    });
+	 });
 </script>
 </head>  
 <body onload="GenerateCaptcha()">
@@ -45,21 +58,22 @@ function removeSpaces(string) {
 		 <li style="float:left; padding: 10px 10px 10px 50px;"><a style="font-size:30px;" href="#booking">Booking.com</a></li>
 		</ul>
 		</div>
-			<script src="script.js"></script>
 		 	<form name="signUpform" onsubmit="return validateRegisterForm()" action="validate" method="post">
 			<label>First name:</label> 
-            <input type="text" name="fname"> 
+            <input type="text" name="fname" id="fname"> 
             <br/></br> 
             <label>Last name:</label> 
-            <input type="text" name="lname"> 
+            <input type="text" name="lname" id="lname"> 
             <br/></br> 
-            <label>Email address:</label> 
-            <input type="email" name="email"> 
+            <label>Email address:</label>
+            <input type="email" name="email" id="email">
+            <span></span>
             <br/></br> 
-            <input type="radio" name="Type" value="Admin">
-			<label for="Admin">Admin</label><br>
-			<input type="radio" name="Type" value="Client">
-			<label for="Client">Client</label><br>
+            <label for="users">What type of users you are?</label>
+ 			<select name="typeUsers" id="typeUsers">
+ 			<option value="Admin">Admin</option>
+ 			<option value="Customer">Client</option>
+ 			</select>
             <div style="border: 2px solid gray; width: 700px;">   
 	        <input type="text" id="txtCompare"/>  
 	        <input type="text" id="txtCaptcha" style="text-align: center; border: none; font-weight: bold; font-size: 20px; font-family: Modern" />  

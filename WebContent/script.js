@@ -41,6 +41,15 @@ function validateRegisterForm(){
 	}
 	
 	/*$(document).ready(function(){
+		    $("button").click(function(){
+		        $.ajax({method:"post",url: "validate", success: function(result,status,xhr){
+		            $("#div1").html(result);
+		            console.log(status);
+		            console.log(xhr);
+		        }});
+		    });
+		});*/
+	/*$(document).ready(function(){
         $("input").keyup(function(){
             var email = $("input").val();
             $.get("", {suggest: email}, function(result,status){
